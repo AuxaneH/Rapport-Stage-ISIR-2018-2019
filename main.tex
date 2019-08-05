@@ -1,0 +1,50 @@
+\documentclass{report}
+\usepackage[utf8]{inputenc}
+
+%Setup
+
+%% Packages %%
+\input{Utility/Packages}
+	
+%% Colours and margins %%
+\input{Utility/Personalisation}
+
+%% Title of the Overleaf Project %%
+\title{Rapport Stage ISIR 2018}
+
+%% --------------------------------------------- %%
+%% Beginning of the document %%
+\begin{document}
+
+%% First page of the report %%
+\input{Utility/PageDeGarde}
+
+%% TABLE DES MATIÉRES %%
+\tableofcontents
+
+%% ABSTRACT %%
+\include{Abstract}
+
+%% INTRODUCTION %%
+\include{Introduction}
+
+%% REPORT %%
+\include{Corps}
+
+%% CONCLUSION %%
+\include{Conclusion}
+
+%% BIBLIO %%
+\printbibliography
+
+%% ANNEXES %%
+\appendix
+    \chapter{Définitions}
+    \label{Def}
+    \begin{description}
+    \item [Aponévrose : ] "Membrane blanche ou jaunâtre, luisante, très résistante, composée de fibres entrecroisées, servant, soit de terminaison ou d'intersection aux muscles qu'elle fixe aux os, soit d'enveloppe aux muscles qu'elle maintient en place
+    ."\cite{noauthor_aponevrose_nodate}
+    \end{description}
+
+
+\end{document}

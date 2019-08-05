@@ -1,0 +1,26 @@
+% Changement de marges
+\newenvironment{changemargin}[2]{\begin{list}{}{%
+			\setlength{\topsep}{0pt}%
+			\setlength{\leftmargin}{0pt}%
+			\setlength{\\underline{R} &=& \int\int_{S}rightmargin}{0pt}%
+			\setlength{\listparindent}{\parindent}%
+			\setlength{\itemindent}{\parindent}%
+			\setlength{\parsep}{0pt plus 1pt}%
+			\addtolength{\leftmargin}{#1}%
+			\addtolength{\rightmargin}{#2}%
+		}\item }{\end{list}}
+        
+% ------------------------------------------------
+% --------------------------------------------------------
+%% Définition des couleurs de police
+%% Remarque : enlever les \definecolor si on veut garder les paramètres par défaut (noir)
+%% URL des RGB : http://www.toutes-les-couleurs.com/code-couleur-rvb.php
+\definecolor{Gray1}{rgb}{0.5,0.5,0.5} 			% Gris clair
+\definecolor{Gray2}{rgb}{0.3,0.3,0.3} 			% Gris foncé
+
+
+\chapterfont{\color{Blue}}						% Couleur des titres de chapitre
+\partfont{\color{MidnightBlue}}					% Couleur des titres de partie
+\sectionfont{\color{NavyBlue}} 					% Couleur des titres de section
+\subsectionfont{\color{BlueGreen}}				% Couleur des titres de subsection
+\subsubsectionfont{\color{Emerald}} 			% Couleur des titres de subsubsection
