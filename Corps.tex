@@ -50,7 +50,36 @@ Le compréhension générale de ces théories se base en grande partie sur l'art
 A.V. Hill fut le premier à présenter un modèle simplifié du fonctionnement d'un muscle en 1938.\\
 Ce modèle à été réalisé d'un point de vue purement mécanique à l'aide d'observations expérimentales. Il ne tiens donc pas compte des spécificités du fonctionnement des muscles mais seulement de leurs caractéristiques observables et de leur comportement global.\\
 
-Poursuivant des travaux déjà entamés par d'autres auparavant et impliquant des poids suspendus à des muscles stimulés électriquement, le scientifique propose dans son papier "The heat of shortening and the dynamic constants of muscle" \cite{hill_archibald_vivian_heat_1938} une formule liant la longueur musculaire à la force engendrée.\\
+Poursuivant des travaux déjà entamés par d'autres auparavant et impliquant des poids suspendus à des muscles stimulés électriquement, le scientifique propose dans son papier "The heat of shortening and the dynamic constants of muscle" \cite{hill_archibald_vivian_heat_1938} une formule liant la longueur musculaire à la force engendrée (équation \ref{force-longueur}) \cite{berranen_simulation_2015}.\\
+
+\begin{equation}
+    \label{force-longueur}
+    f_l(\epsilon_c) = exp{- (\frac{\epsilon_c}{b})^2}
+\end{equation}
+
+Avec $b$ une constante matérielle et $\epsilon_c$ le racourcissement relatif du muscle.
+
+On a : 
+
+\begin{equation}
+    \epsilon_c = \frac{L(t)}{L_{c0}-1}
+\end{equation}
+
+Où $L(t)$ représente le longueur du muscle à chaque instant et $L_{c0}$ la longueur optimale du muscle.\\ 
+
+Une autre équation permet quant à elle de relier la force et la vitesse de contraction \cite{berranen_simulation_2015} : 
+\begin{equation}
+    \label{force-vitesse}
+    f_v(\dot\epsilon_c) = \frac{V_{sh}(V_{max}+L_{c0} \dot\epsilon_c)}{V_{sh} V_{max}- L_{c0} \dot\epsilon_c}
+\end{equation}
+
+Ici $V_{max}$ est la vitesse de contraction maximale du muscle, $V_{sh}$ une constante adimensionnelle et $\dot\epsilon_c$ est la vitesse de racourcissement relatif du muscle. 
+
+La vitesse de contraction maximale peut par ailleurs être calculée avec : 
+
+\begin{equation}
+    V_{max} = 5 \times(1+a(t)\times f_l(\epsilon_c))
+\end{equation}
 
 \begin{figure}[ht]
     \centering\includegraphics[scale=0.4]{Images/Hill.png}
@@ -59,20 +88,15 @@ Poursuivant des travaux déjà entamés par d'autres auparavant et impliquant de
 \end{figure}
 Le muscle tel que représenté par A.V. Hill est composé de trois éléments distincts placés comme dans la figure \ref{Hill}. Un élément dit contractile (CE) y est placé en série avec un ressort appelé élément élastique (SE) et en parallèle avec un troisième élément dit passif (PE). L'élément contractile représente les mécanisme à l'origine de la contraction, ceux-ci tiennent compte à la fois de la longueur, de la force et enfin de la vitesse, les trois variables rattachés aux fonctions musculaires d'aprés A.V.Hill \cite{linden_mechanical_1998}. L'élément élastique quand à lui correspond aux tendons et aux aponévroses, ces tissus passifs élastiques on tendance à s'allonger durant un contraction isométrique. Enfin l'élément passif caractérise la résistance des tissus à l'élongation \cite{berranen_simulation_2015}.
 
-La contraction est ainsi decrite par une equation reliant la longueur musculaire et la force ensendrée par le muscle présenté ci-dessous : 
+L'intégration des deux équations précédentes, force-longueur (équation \ref{force-longueur}) et force-vitesse (équation \ref{force-vitesse}), conduit à l'expression du modèle mathématique de l'élément contractile \cite{berranen_simulation_2015} : 
 
-% Equation ici !!!!!!!
+\begin{equation}
+    F_{ce}(t) = a(t)f_l(\epsilon_c)f_v(\dot\epsilon_c)F_0^m
+\end{equation}
 
-Une autre equation permet quant à elle de relier la force et la vitesse de contraction : 
+$a(t)$ correspond ici à une variable d'activation dépendante du temps et $F_0^m$ est la force active maximum \cite{noauthor_millard_nodate}.
 
-% Deuxième equation ici !!!!!
-
-L'integration des deux équations précédentes conduit à l'expression du modèle mathématique de l'element contractile : 
-
-% Troisième équation ici !!!! 
-
-
-\section{Les modèle de Millard et thelen}
+\section{Les modèles de Millard et Thelen}
 
 \section{Autres modèles}
 Les modèles présentés plus haut ne sont pas les seuls a exister. En effet deux modèles peuvent notamment être mis en avant : le plus anciens datant de 1956 est le modèle de Huxley. Celui s'interesse au phénomènes biologiques etc ... \cite{huxley_muscle_1957}
